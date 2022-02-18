@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Tabs from './Components/Tabs/Tabs';
+import Select from './Components/Select/Select';
+import Posts from './Components/Post/Posts';
+import ThemeButton from './ModeButton/ThemeButton';
+import { ThemeContext } from './ModeButton/Theme'
+
+
+//Tabs 
+const options = [
+  { label: 'Tab 1', value: '1' },
+  { label: 'Tab 2', value: '2' },
+  { label: 'Tab 3', value: '3' }
+]
+
+const { Theme } = useContext(ThemeContext)
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          12333333333
-        </a>
-      </header>
+      <Select />
+      <ThemeButton>Mode</ThemeButton>
+      <Tabs options={options} />
+      <Posts />
     </div>
   );
 }

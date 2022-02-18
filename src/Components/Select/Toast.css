@@ -1,0 +1,16 @@
+.success{
+  padding: 20px;
+  color: darkgreen;
+}
+.Error{
+  padding: 20px;
+  color: brown;
+}
+.Info {
+  padding: 20px;
+  color: darkblue;
+}
+.Warning {
+  padding: 20px;
+  color: gold;
+}
