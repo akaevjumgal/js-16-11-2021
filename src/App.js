@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import "./App.css";
+import Toggle from './theme';
+ 
 function App() {
-  return (
+  const [toggled, setToggled] = React.useState(false);
+  const handleClick = () => {
+    setToggled((s) => !s);
+  };
+
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save
-        </p>asdasdasasdqweqweqweqsadsf
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Toggle toggled={toggled} onClick={handleClick} />
     </div>
   );
 }
