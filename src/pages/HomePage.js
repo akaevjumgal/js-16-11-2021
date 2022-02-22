@@ -6,13 +6,14 @@ export default function HomePage() {
 
     const options = [{ label: 'Tab 1', value: '1' }, { label: 'Tab 2', value: '2' }]
 
-
     return (
         <div className="cont">
             <div>
                 <Tabs options={options} />
-                <div className='asd'>asd</div>
             </div> 
+            <div>
+                <Link to='/materialpage'>Material UI</Link>
+            </div>
         </div>
     )
 }
