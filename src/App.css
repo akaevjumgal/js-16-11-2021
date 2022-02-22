@@ -1,4 +1,4 @@
-/* .App {
+.App {
   text-align: center;
 }
 
@@ -35,8 +35,8 @@
   to {
     transform: rotate(360deg);
   }
-} */
-.toggle {
+}
+/* .toggle {
   height: 100px;
   width: 200px;
   border-radius: 50px;
@@ -53,7 +53,7 @@ background-image: linear-gradient(midnightblue, rebeccapurple);
 .night > .notch {
 background-color: whitesmoke;
 box-shadow:  0 0 5px whitesmoke;
-transform: translate(100px, 0);
+transform: translate(100px, 0)
 }
 
 .App{
@@ -70,4 +70,4 @@ transform: translate(100px, 0);
   left: 5px;
   box-shadow: 0 0 5px yellow;
   transition: all 0.3s ease;
-}
+} */
