@@ -15,6 +15,7 @@ export default function Header () {
             <div className="container">
                 <Link to='/'><p>Home</p></Link>
                 <Link to='/albums'><p>ReactRouter<br></br>HomeWork</p></Link>
+                <Link to='/renderProps'><p>RenderProps</p></Link>
             </div>
         </header>
     )
