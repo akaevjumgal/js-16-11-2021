@@ -1,0 +1,26 @@
+
+  body {
+    margin: 0px;
+    padding: 50px;
+  }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 25px;
+      row-gap: 40px;
+    }
+      .card {
+        height: 200px;
+        background: #ffffff;
+        box-shadow: 5px 5px 15px 1px #00000066;
+      }
+        .back{
+            background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+        }
