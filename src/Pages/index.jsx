@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { decrement, increment } from '../store/counter/counterSlice';
 
 const Prices = [
   {
@@ -66,7 +68,9 @@ const getPages = (listLength, perPage) => {
 }
 
 export default function MainPage() {
+  const counterValue = useSelector((state) => state.counter.value);
   const [currentOffset, setOffset] = useState(1);
+  const dispatch = useDispatch()
 
   const styles = {
     display: 'flex',
@@ -99,6 +103,13 @@ export default function MainPage() {
         <div key={page} onClick={setPage(page)}>{page}</div>
       )}
     </div>
+    <h2>{counterValue}</h2>
+    <button onClick={() => dispatch(increment())}>
+      increment
+    </button>
+    <button onClick={() => dispatch(decrement())}>
+      decrement
+    </button>
     </div>
   )
 }
