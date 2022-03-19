@@ -102,6 +102,7 @@ export default function MainPage() {
       {pages.map((page) => 
         <div key={page} onClick={setPage(page)}>{page}</div>
       )}
+      
     </div>
     <h2>{counterValue}</h2>
     <button onClick={() => dispatch(increment())}>
