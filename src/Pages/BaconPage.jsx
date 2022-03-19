@@ -1,22 +1,20 @@
 import { useContext, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import BaconContext from '../bacon.context';
+import { baconsSelector } from "../store/counter/counterSelectors";
+import { getBaconsThunk } from '../store/counter/counterThunk';
 
 export default function BaconPage() {
-  const { bacons, setBacons } = useContext(BaconContext)
+  const { bacons, loading } = useSelector(baconsSelector)
+  const dispatch = useDispatch()
 
-  const mapBaconToIds = (bacon, index) => ({ id: index + 1, bacon });
-
-  const fetchBacons = async () => {
-    const response = await fetch('https://baconipsum.com/api/?type=meat-and-filler')
-    const result = await response.json();
-
-    setBacons(result.map(mapBaconToIds));
+  const fetchBacons = () => {
+    dispatch(getBaconsThunk())
   }
 
   useEffect(() => {
     if (!bacons.length) {
-      fetchBacons();
+      fetchBacons()
     }
   }, [])
 
@@ -34,6 +32,7 @@ export default function BaconPage() {
 
   return (
     <div style={container}>
+      {loading && <div>Loading...</div>}
       {bacons.map(({ id, bacon }) => (
         <Link key={id} to={`/bacon/${id}`}>
           <div style={baconStyles}>
