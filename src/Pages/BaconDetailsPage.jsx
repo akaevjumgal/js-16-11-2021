@@ -1,10 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom"
-import { useContext } from 'react';
-import BaconContext from "../bacon.context";
+import { useSelector } from "react-redux";
+import { baconsSelector } from "../store/counter/counterSelectors";
 
 export default function BaconDetailsPage() {
   const { baconId } = useParams();
-  const { bacons } = useContext(BaconContext);
+  const { bacons } = useSelector(baconsSelector);
   const navigate = useNavigate();
 
   const baconDetails = bacons.find((bacon) => bacon.id === Number(baconId))
