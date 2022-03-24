@@ -1,4 +1,6 @@
+import clsx from 'clsx';
 import { useState } from 'react';
+import paginationStyles from '../pagination.module.css'
 
 const Prices = [
   {
@@ -96,7 +98,11 @@ export default function MainPage() {
       ))}
     <div style={{ display: 'flex', gap: '1rem' }}>
       {pages.map((page) => 
-        <div key={page} onClick={setPage(page)}>{page}</div>
+        <div 
+          key={page} 
+          onClick={setPage(page)}
+          className={clsx({ [paginationStyles.activePage]: currentOffset === page })}
+        >{page}</div>
       )}
     </div>
     </div>
