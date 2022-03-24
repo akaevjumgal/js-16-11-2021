@@ -4,6 +4,7 @@ import MainPage from "./Pages";
 import BaconDetailsPage from "./Pages/BaconDetailsPage";
 import BaconPage from "./Pages/BaconPage";
 import CounterPage from "./Pages/CounterPage";
+import RequestPage from "./Pages/RequestPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="bacon" element={<BaconPage />} />
       <Route path="bacon/:baconId" element={<BaconDetailsPage />} />
       <Route path="counter" element={<CounterPage />} />
+      <Route path="requests" element={<RequestPage />} />
     </Routes>
   );
 }

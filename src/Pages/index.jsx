@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
+import Select from '../components/Select/Select';
 import paginationStyles from '../pagination.module.css'
 
 const Prices = [
@@ -105,6 +106,7 @@ export default function MainPage() {
         >{page}</div>
       )}
     </div>
+    <Select />
     </div>
   )
 }
