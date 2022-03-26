@@ -1,0 +1,17 @@
+.Lazy {
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-left: 10px;
+  display: flex;
+  box-shadow: 2px 2px 10px 0px #0000001a;
+  margin-top: 10px;
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+}
+.Lazy_Container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
