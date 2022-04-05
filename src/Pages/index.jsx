@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import Select from '../components/Select/Select';
 import paginationStyles from '../pagination.module.css'
+import ErrorBoundary from '../catcher';
 
 const Prices = [
   {
@@ -68,6 +69,14 @@ const getPages = (listLength, perPage) => {
   return pages
 }
 
+const BuggyComponent = ({ error = false, children }) => {
+  if (error) {
+    throw new Error("I want you to fail!");
+  }
+
+  return children;
+};
+
 export default function MainPage() {
   const [currentOffset, setOffset] = useState(1);
 
@@ -85,28 +94,32 @@ export default function MainPage() {
   const pages = getPages(Prices.length, PricesPerPage)
 
   return (
-    <div style={{ width: '60vw' }}>
-      {Prices.slice(indexOfFirstItem, indexOfLastItem)
-        .map(({ id, name, price }) => (
-        <div key={id} style={styles}>
-          <div>
-            {name}
+    <ErrorBoundary>
+      <BuggyComponent error>
+      <div style={{ width: '60vw' }}>
+        {Prices.slice(indexOfFirstItem, indexOfLastItem)
+          .map(({ id, name, price }) => (
+          <div key={id} style={styles}>
+            <div>
+              {name}
+            </div>
+            <div>
+              {price}
+            </div>
           </div>
-          <div>
-            {price}
-          </div>
-        </div>
-      ))}
-    <div style={{ display: 'flex', gap: '1rem' }}>
-      {pages.map((page) => 
-        <div 
-          key={page} 
-          onClick={setPage(page)}
-          className={clsx({ [paginationStyles.activePage]: currentOffset === page })}
-        >{page}</div>
-      )}
-    </div>
-    <Select />
-    </div>
+        ))}
+      <div style={{ display: 'flex', gap: '1rem' }}>
+        {pages.map((page) => 
+          <div 
+            key={page} 
+            onClick={setPage(page)}
+            className={clsx({ [paginationStyles.activePage]: currentOffset === page })}
+          >{page}</div>
+        )}
+      </div>
+      <Select />
+      </div>
+      </BuggyComponent>
+    </ErrorBoundary>
   )
 }
