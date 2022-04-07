@@ -1,18 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment } from "../store/counter/counterSlice";
+import { decrement, increment, setByAmount } from "../store/counter/counterSlice";
 import { counterValueSelector } from "../store/counter/counterSelectors";
 
 export default function CounterPage() {
   const counterValue = useSelector(counterValueSelector);
   const dispatch = useDispatch()
 
+  const onChange = (e) => {
+    dispatch(setByAmount(e.target.value));
+  }
+
   return (
     <div>
-      <h2>{counterValue}</h2>
-      <button onClick={() => dispatch(increment())}>
+      <input data-testid="counter-input" type="number" value={counterValue} onChange={onChange} />
+      <h2 data-testid="counter-value">{counterValue}</h2>
+      <button data-testid="increment-btn" onClick={() => dispatch(increment())}>
         increment
       </button>
-      <button onClick={() => dispatch(decrement())}>
+      <button data-testid="decrement-btn" onClick={() => dispatch(decrement())}>
         decrement
       </button>
     </div>
