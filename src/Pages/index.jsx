@@ -95,7 +95,7 @@ export default function MainPage() {
 
   return (
     <ErrorBoundary>
-      <BuggyComponent error>
+      <BuggyComponent>
       <div style={{ width: '60vw' }}>
         {Prices.slice(indexOfFirstItem, indexOfLastItem)
           .map(({ id, name, price }) => (
