@@ -6,12 +6,26 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store'
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { createTheme, ThemeProvider } from '@mui/material';
+
+const queryClient = new QueryClient()
+
+const theme = createTheme({
+  palette: {
+    mode: 'dark',
+  }
+})
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
+        </QueryClientProvider>
       </BrowserRouter>
       </Provider>
   </React.StrictMode>,
