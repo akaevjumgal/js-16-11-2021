@@ -1,7 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getBaconsThunk } from "./counterThunk";
 
-const initialState = {
+type CounterState = {
+  value: number;
+  loading: boolean;
+  bacons: any[];
+}
+
+const initialState: CounterState = {
   value: 0,
   loading: true,
   bacons: [],
