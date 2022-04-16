@@ -2,6 +2,7 @@ import { CircularProgress, LinearProgress } from "@mui/material";
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import UploadPage from "./Pages/UploadPage";
 const MainPage = lazy(() => import("./Pages"));
 const BaconDetailsPage = lazy(() => import("./Pages/BaconDetailsPage"));
 const BaconPage = lazy(() => import("./Pages/BaconPage"));
@@ -17,6 +18,7 @@ function App() {
         <Route path="bacon/:baconId" element={<BaconDetailsPage />} />
         <Route path="counter" element={<CounterPage />} />
         <Route path="requests" element={<RequestPage />} />
+        <Route path="upload" element={<UploadPage />} />
       </Routes>
     </Suspense>
   );
