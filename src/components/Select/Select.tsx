@@ -1,21 +1,16 @@
 
-import ReactSelect, { components } from 'react-select';
+import ReactSelect, { components, MenuProps } from 'react-select';
 
-const Menu = (props) => {
-
-  const styles = {
-    borderRadius: 'none',
-  }
-
+const Menu = (props: MenuProps) => {
   return (
-    <components.Menu style={styles} {...props}>
+    <components.Menu {...props}>
       <div>Custom menu List</div>
       {props.children}
     </components.Menu>
   )
 }
 
-export default function Select({ customProps, ...props }) {
+export default function Select({ ...props }) {
   return (
     <ReactSelect
       {...props}
