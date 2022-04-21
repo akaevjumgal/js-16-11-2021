@@ -66,9 +66,10 @@
 .add {
     margin-top: 50px;
     border: none;
-    background: greenyellow;
+    background: rgb(54, 201, 54);
     width: 100px;
     height: 30px;
     border-radius: 5px;
     cursor: pointer;
+    color: white;
 }
