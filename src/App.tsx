@@ -2,6 +2,7 @@ import { CircularProgress, LinearProgress } from "@mui/material";
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import ReduxSimplePage from "./Pages/ReduxSimplePage";
 import UploadPage from "./Pages/UploadPage";
 const MainPage = lazy(() => import("./Pages"));
 const BaconDetailsPage = lazy(() => import("./Pages/BaconDetailsPage"));
@@ -19,6 +20,7 @@ function App() {
         <Route path="counter" element={<CounterPage />} />
         <Route path="requests" element={<RequestPage />} />
         <Route path="upload" element={<UploadPage />} />
+        <Route path="redux-simple" element={<ReduxSimplePage />} />
       </Routes>
     </Suspense>
   );

@@ -1,7 +1,8 @@
 import { CircularProgress } from "@mui/material"
-import { useEffect } from "react"
+import { Component, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { Props } from "react-select"
 import { baconsSelector } from "../store/counter/counterSelectors"
 import { getBaconsThunk } from "../store/counter/counterThunk"
 
@@ -31,10 +32,17 @@ export default function BaconModule() {
     padding: '1rem'
   }
 
+  const text = bacons.reduce<{ value: string }>(
+    (prevValue, { bacon }) => {
+    prevValue.value += bacon.split('. ')[0];
+
+    return prevValue;
+  }, { value: '' })
+  console.log(text);
   return (
     <div style={container}>
       {loading && <CircularProgress size={20} />}
-      {bacons.map(({ id, bacon }) => (
+      {bacons.map<JSX.Element>(({ id, bacon }) => (
         <Link key={id} to={`/bacon/${id}`}>
           <div style={baconStyles}>
             {bacon.split('. ')[0]}

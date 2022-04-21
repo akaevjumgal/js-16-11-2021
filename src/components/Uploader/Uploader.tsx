@@ -7,7 +7,7 @@ interface UploderProps extends InputHTMLAttributes<{}> {
 
 const Uploader: FC<UploderProps> = ({ upload, type = 'file', ...props }) => {
   return (
-      <input {...props} onChange={upload} />
+      <input {...props} type={type} onChange={upload} />
   )
 }
 
