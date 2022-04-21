@@ -11,11 +11,15 @@ export default function Crut() {
         <div className="crut_container">
             
             <div className="crut_wrapper">
-                <h2>Ваши Задачи :</h2>
+                <h2>Настройка Магазина :</h2>
                 <div className="crut_posts">
             {PostsValue ? PostsValue.map((post,idx) => (
                 <div className="crut_post_container" key={idx}>
-                    {post ? post.body : null}
+                    <div className="crut_text_container">
+                 <p className="title">Тип : {post ? post.title : null}</p> 
+                  <p className="body">Название : {post ? post.body : null}</p> 
+                  <p className="price"> Цена : {post ? post.price : null}</p> 
+                  </div>
                 <div className="crut_post_buttons">
                     <button className="delete" style={{display : post ? 'inline-block' : 'none'}} onClick={() => dispatch(Postdelete(idx))}>
                     delete

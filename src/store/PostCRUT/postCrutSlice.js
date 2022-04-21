@@ -11,18 +11,28 @@ export const PostSlice = createSlice({
         state.splice (action.payload,1)
       },
       Postadd: (state) => {
-          const value = prompt('Введите текст')
-          if (value){
+          const title = prompt('Введите Тип :')
+          const body = prompt('Введите название:')
+          const price = prompt('Введите цену:')
+          if (title){
               state.push( {
-                  body : value
+                  title : title,
+                  body: body,
+                  price: price,
               })
           }
     
       },
       PostRedact: (state , action)=> {
-            const value = prompt('Новый текст:')
-            if (value){
-            state[action.payload].body = value}
+        const title = prompt('Введите Новый Тип :')
+        const body = prompt('Введите Новое Название:')
+        const price = prompt('Введите Новую Цену:')
+            if (title){
+            state[action.payload].title = title};
+            if (body){
+                state[action.payload].body = body};
+            if (price){
+                    state[action.payload].price = price}
             
          
       }

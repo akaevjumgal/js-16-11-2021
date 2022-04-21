@@ -44,6 +44,10 @@
     margin-right: 20px;
     width: 100%;
 }
+.crut_text_container {
+    display: flex;
+    flex-direction: column;
+}
 .delete {
     border: none;
     background: rgb(136, 0, 255);
@@ -72,4 +76,14 @@
     border-radius: 5px;
     cursor: pointer;
     color: white;
+}
+.title {
+    white-space: nowrap;
+
+}
+.body {
+    white-space: nowrap;
+}
+.price {
+    white-space: nowrap;
 }
