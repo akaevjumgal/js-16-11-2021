@@ -1,12 +1,10 @@
 
-function groupBy<Type, Key extends string>(
+function groupBy<Type, Key extends keyof Type>(
   inputArray: Type[], key: Key
 ): { [key: string]: Type } {
   return inputArray.reduce<{ [key: string]: Type }>(
     (accumulator, item) => {
-    // TODO: Provide proper typings for Key generic
-    // @ts-ignore
-    const itemKey = item[key];
+    const itemKey = item[key] as unknown as string;
     accumulator[itemKey] = item;
     return accumulator;
   }, {});
