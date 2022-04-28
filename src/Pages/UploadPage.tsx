@@ -1,5 +1,7 @@
 import Uploader from "../components/Uploader/Uploader";
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, Component, useState } from 'react';
+import Slider from "../components/Slider/slider";
+import { observer } from "mobx-react";
 
 const API_KEY = 'public_kW15aqe72FRjjhKxU8TxN2BTM7ox';
 
@@ -17,8 +19,9 @@ interface UploadResponse {
   fileUrl: string;
 }
 
-export default function UploadPage() {
-  const onUpload = async (event: ChangeEvent<HTMLInputElement>) => {
+@observer
+export default class UploadPage extends Component {
+  onUpload = async (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       const file = event.target.files[0];
       const response = await http<UploadResponse>(
@@ -34,9 +37,12 @@ export default function UploadPage() {
     }
   }
 
-  return (
-    <div>
-      <Uploader upload={onUpload} />
-    </div>
-  )
+  render() {
+    return (
+      <div>
+        <Slider />
+        {/* <Uploader upload={onUpload} /> */}
+      </div>
+    )
+  }
 }
